@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book NaCo</title>
+    <link rel="shortcut icon" href="Shortimage.jpg">
+    <style>
+        body {
+            background: url(Background-image.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            height: 80%;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-direction: row-reverse; /* Flip the form and image */
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(40px);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            order: 2; /* Order for larger screens */
+        }
+        .form-container h1 {
+            margin: 0 0 20px 0;
+            color: white;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="submit"] {
+            background-color: #ae8957;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #8e6d4d;
+            transform: scale(1.05);
+        }
+        .form-group textarea {
+            height: 120px; /* Increased height for textarea */
+            resize: vertical;
+        }
+        .image-container {
+            width: 50%;
+            background-image: url(booknaco.jpg);
+            background-size: cover;
+            background-position: center;
+            border-right: 1px solid #444;
+            background-color: #333; /* Fallback background color */
+            order: 1; /* Order for larger screens */
+        }
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px; /* Reposition logo to the left */
+        }
+        .header img {
+            width: 80px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack elements vertically on smaller screens */
+                border-radius: 20px;
+            }
+            .image-container {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #444;
+                height: 50vh; /* Ensure the image container has height */
+                order: 1; /* Image comes first on smaller screens */
+            }
+            .form-container {
+                width: 100%;
+                order: 2; /* Form comes after the image on smaller screens */
+            }
+            .header {
+                top: 10px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="Logo.png" alt="Logo">
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <h1>Book NaCo</h1>
+            <form action="https://api.web3forms.com/submit" method="POST">
+
+                <input type="hidden" name="access_key" value="05a80847-261a-4f36-ac3f-6042e4090bf0">
+
+                <div class="form-group">
+                    <label for="name">Name & Surname</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                
+                <div class="form-group">
+                    <input type="submit" value="Send Request">
+                </div>
+            </form>
+        </div>
+        <div class="image-container"></div>
+    </div>
+</body>
+</html>
